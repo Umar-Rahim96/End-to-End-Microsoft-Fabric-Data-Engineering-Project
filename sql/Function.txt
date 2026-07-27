@@ -1,0 +1,17 @@
+CREATE FUNCTION gold.customers_function (@customer_zip INT)
+RETURNS TABLE
+AS
+RETURN
+(
+ SELECT 
+      *
+      FROM
+          umar_DWH.gold.cur_customers
+          WHERE
+               customer_zip_code = @customer_zip
+    )
+
+
+    SELECT * from gold.customers_function(22733);
+
+    select * FROM gold.cur_customers
