@@ -1,0 +1,16 @@
+CREATE PROCEDURE gold.customer_sp(@customer_zip INT)
+AS
+BEGIN
+    SELECT
+      *
+      FROM 
+        
+        umar_DWH.gold.cur_customers
+        WHERE
+           
+           customer_zip_code = @customer_zip;
+
+END;
+
+
+EXEC gold.customer_sp @customer_zip = 22733
