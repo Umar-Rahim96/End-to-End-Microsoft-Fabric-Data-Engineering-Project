@@ -1,0 +1,39 @@
+CREATE VIEW gold.bussiness_view_1
+AS
+WITH CTE1 AS (
+    SELECT
+        o.order_id,
+        oi.product_id,
+        CASE
+            WHEN p.product_weight_g <= 1000 THEN 'Low'
+            WHEN p.product_weight_g <= 5000 THEN 'Mid'
+            ELSE 'High'
+        END AS weight_flag
+    FROM umar_DWH.gold.cur_orders o
+    LEFT JOIN umar_DWH.gold.cur_orderitems oi
+        ON o.order_id = oi.order_id
+    LEFT JOIN umar_DWH.gold.cur_products p
+        ON oi.product_id = p.product_id
+    WHERE o.order_status = 'delivered'
+)
+SELECT
+    weight_flag,
+    COUNT(DISTINCT order_id) AS total_orders
+FROM CTE1
+GROUP BY weight_flag;
+
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+CREATE VIEW gold.bussiness_view_2
+AS
+SELECT * FROM
+(
+SELECT
+     *,
+     DENSE_RANK() OVER (PARTITION BY payment_type ORDER BY payment_value) as bucket_ranking
+from
+     umar_DWH.gold.cur_payments
+
+) T
+
+where bucket_ranking <= 10;
