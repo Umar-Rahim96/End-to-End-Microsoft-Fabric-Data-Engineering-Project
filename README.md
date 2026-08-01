@@ -4,9 +4,9 @@
 
 This project demonstrates an end-to-end data engineering pipeline built using Microsoft Fabric. The pipeline ingests CSV files from Azure Data Lake Storage Gen2, performs data transformation using PySpark, stores the processed data in a Lakehouse following the Medallion Architecture, creates Gold tables in a Fabric Data Warehouse, and uses Power BI for reporting.
 
-## Architecture
+## architecture
 
-![Architecture](architecture/Architecture.jpg)
+![architecture](architecture/architecture.jpg)
 
 ## Technologies
 
