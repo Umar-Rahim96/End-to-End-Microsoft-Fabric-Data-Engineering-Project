@@ -130,6 +130,6 @@ In the future, this project can be enhanced by adding:
 
 Computer Science Student | Aspiring Data Engineer
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/Umar-Rahim96?tab=repositories
 
-LinkedIn: https://linkedin.com/in/yourprofile
+LinkedIn: https://www.linkedin.com/in/umar-rahim-17347b27b/
