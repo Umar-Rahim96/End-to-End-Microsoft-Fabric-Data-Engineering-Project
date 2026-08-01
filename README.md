@@ -2,97 +2,134 @@
 
 ## Overview
 
-This project demonstrates an end-to-end data engineering pipeline built using Microsoft Fabric. The pipeline ingests CSV files from Azure Data Lake Storage Gen2, performs data transformation using PySpark, stores the processed data in a Lakehouse following the Medallion Architecture, creates Gold tables in a Fabric Data Warehouse, and uses Power BI for reporting.
+This project demonstrates an end-to-end data engineering solution built using Microsoft Fabric. The pipeline automatically ingests CSV files from Azure Data Lake Storage Gen2, transforms the data using PySpark, stores the processed data in a Lakehouse following the Medallion Architecture (Bronze, Silver, and Gold), creates Gold tables in a Fabric Data Warehouse, and uses Power BI for reporting and visualization.
 
-## architecture
+The goal of this project was to gain hands-on experience in designing and implementing a complete data engineering workflow using Microsoft Fabric.
 
-![architecture](architecture/architecture.jpg)
+---
 
-## Technologies
+## Technologies Used
 
 - Microsoft Fabric
-- Data Factory
 - Azure Data Lake Storage Gen2
+- Microsoft Fabric Data Factory
 - Lakehouse
 - PySpark
-- Data Warehouse
+- Microsoft Fabric Data Warehouse
 - SQL
 - Power BI
-- Git
-- GitHub
+- Git & GitHub
+
+---
 
 ## Project Workflow
 
-1. CSV files are stored in Azure Data Lake Storage Gen2.
-2. A Microsoft Fabric Data Factory pipeline ingests the files.
-3. The pipeline uses Get Metadata, Filter, ForEach, If Condition, Set Variable, and Copy Activity to automate processing.
-4. Raw data is loaded into the Bronze layer of the Lakehouse.
-5. A PySpark notebook cleans and transforms the data.
-6. Transformed data is written to the Silver layer.
-7. Gold fact and dimension tables are created in the Fabric Data Warehouse.
-8. Power BI connects to the semantic model to create reports and dashboards.
+### Data Source
+The source data consists of CSV files stored in Azure Data Lake Storage Gen2.
 
-## Repository Structure
+### Data Ingestion
+A Microsoft Fabric Data Factory pipeline automatically ingests the source files.
 
-```
-.
-├── architecture/
-├── notebooks/
-├── pipeline/
-├── sample-data/
-├── screenshots/
-├── sql/
-└── README.md
-```
+The pipeline uses the following activities:
 
-## Pipeline
+- Get Metadata
+- Filter
+- ForEach
+- If Condition
+- Set Variable
+- Copy Activity
 
-![Pipeline](screenshots/Pipeline.jpg)
+These activities make the pipeline dynamic and reusable for processing multiple files.
 
-## Lakehouse
+### Bronze Layer
+The ingested data is stored in the Bronze layer of the Lakehouse without any transformations. This layer preserves the original raw data.
 
-![Lakehouse](screenshots/Lakehouse.jpg)
+### Data Transformation
+A PySpark notebook performs data transformation by:
 
-## PySpark Notebook
+- Removing duplicate records
+- Handling missing values
+- Renaming columns
+- Converting data types
+- Preparing the data for analytics
 
-![Notebook](screenshots/Notebook.jpg)
+### Silver Layer
+The transformed data is stored in the Silver layer of the Lakehouse.
 
-## Data Warehouse
+### Gold Layer
+Business-ready Fact and Dimension tables are created in the Microsoft Fabric Data Warehouse for reporting and analysis.
 
-![Warehouse](screenshots/Warehouse.jpg)
+### Reporting
+Power BI connects to the Gold tables through a semantic model to create interactive dashboards.
 
-## Power BI Dashboard
+---
 
-![Dashboard](screenshots/Dashboard.jpg)
+## Repository Contents
 
-## Features
+This repository contains:
+
+- **architecture/** – Project architecture diagram.
+- **notebooks/** – PySpark notebook used for data transformation.
+- **pipeline/** – Documentation related to the Microsoft Fabric Data Factory pipeline.
+- **powerbi/** – Power BI report (.pbix).
+- **sample-data/** – Sample datasets used in the project.
+- **screenshots/** – Screenshots of the pipeline, Lakehouse, Data Warehouse, and Power BI report.
+- **sql/** – SQL scripts used to create tables and views.
+
+---
+
+## Project Files
+
+- Architecture Diagram: `architecture/DataEngineeringworkflow.jpg`
+- PySpark Notebook: `notebooks/BronzeToSilverTransformation.ipynb`
+- Power BI Report: `powerbi/SalesDashboard.pbix`
+
+---
+
+## Key Features
 
 - Automated data ingestion from Azure Data Lake Storage Gen2
-- Metadata-driven pipeline
-- Reusable ETL workflow
-- PySpark data transformation
+- Dynamic Microsoft Fabric Data Factory pipeline
+- Metadata-driven workflow
+- PySpark-based data transformation
 - Bronze, Silver, and Gold architecture
-- Gold tables in Fabric Data Warehouse
-- Interactive Power BI reporting
+- Gold tables in Microsoft Fabric Data Warehouse
+- Interactive Power BI dashboard
 
-## Skills Demonstrated
+---
 
-- Microsoft Fabric
-- Data Engineering
-- ETL Pipeline Development
-- PySpark
-- SQL
-- Data Warehousing
-- Azure Data Lake Storage Gen2
-- Power BI
+## What I Learned
 
-## Future Enhancements
+This project helped me gain practical experience in:
+
+- Building automated ETL pipelines using Microsoft Fabric
+- Working with Azure Data Lake Storage Gen2
+- Developing reusable Data Factory pipelines
+- Transforming data using PySpark
+- Implementing the Medallion Architecture
+- Designing Gold tables in a Data Warehouse
+- Creating Power BI reports using curated data
+
+---
+
+## Future Improvements
+
+In the future, this project can be enhanced by adding:
 
 - Incremental data loading
-- Pipeline monitoring
+- Pipeline scheduling
 - Data quality validation
-- CI/CD with Git integration
+- Error handling and logging
+- CI/CD integration using GitHub
+
+---
 
 ## Author
 
 **Umar Rahim**
+
+Computer Science Student | Aspiring Data Engineer
+
+GitHub: https://github.com/yourusername
+
+LinkedIn: https://linkedin.com/in/yourprofile
