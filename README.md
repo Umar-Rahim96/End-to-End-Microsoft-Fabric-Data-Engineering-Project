@@ -68,13 +68,13 @@ Power BI connects to the Gold tables through a semantic model to create interact
 
 This repository contains:
 
-- **architecture/** – Project architecture diagram.
-- **notebooks/** – PySpark notebook used for data transformation.
-- **pipeline/** – Documentation related to the Microsoft Fabric Data Factory pipeline.
-- **powerbi/** – Power BI report (.pbix).
-- **sample-data/** – Sample datasets used in the project.
-- **screenshots/** – Screenshots of the pipeline, Lakehouse, Data Warehouse, and Power BI report.
-- **sql/** – SQL scripts used to create tables and views.
+- 📁 **[architecture](./architecture/)** – Project architecture diagram.
+- 📁 **[notebooks](./notebooks/)** – PySpark notebook used for data transformation.
+- 📁 **[pipeline](./pipeline/)** – Documentation related to the Microsoft Fabric Data Factory pipeline.
+- 📁 **[powerbi](./powerbi/)** – Power BI report (.pbix).
+- 📁 **[sample-data](./sample-data/)** – Sample datasets used in the project.
+- 📁 **[screenshots](./screenshots/)** – Screenshots of the pipeline, Lakehouse, Data Warehouse, and Power BI report.
+- 📁 **[sql](./sql/)** – SQL scripts used to create tables and views.
 
 ---
 
